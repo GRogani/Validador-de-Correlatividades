@@ -14,7 +14,7 @@ public class Inscripcion {
     }
 
     public boolean aprobada() {
-       return this.materiasInscripcion.stream().allMatch(mat -> this.cumpleConCorrelativas(mat) && !this.alumno.materiasAprobadas.contains(mat))
+       return this.materiasInscripcion.stream().allMatch(mat -> this.cumpleConCorrelativas(mat) && !this.alumno.getMateriasAprobadas().contains(mat))
                && !this.materiasInscripcion.isEmpty();
     }
 
@@ -23,8 +23,8 @@ public class Inscripcion {
     }
 
     public boolean cumpleConCorrelativas(Materia unaMateria) {
-        for (Materia materia : unaMateria.correlativas) {
-            if (!this.alumno.materiasAprobadas.contains(materia)) {
+        for (Materia materia : unaMateria.getCorrelativas()) {
+            if (!this.alumno.getMateriasAprobadas().contains(materia)) {
                 return false;
             }
         }

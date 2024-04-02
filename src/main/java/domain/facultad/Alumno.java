@@ -9,9 +9,16 @@ public class Alumno {
     public String legajo;
     public List<Materia> materiasAprobadas;
 
+
+    public List<Materia> getMateriasAprobadas() {
+        return materiasAprobadas;
+    }
+
     public Alumno(String nombre, String legajo) {
         this.nombre = nombre;
         this.materiasAprobadas = new ArrayList<>();}
+
+
 
     public void agregarAprobadas(Materia ... materias) {
     Collections.addAll(this.materiasAprobadas, materias);
